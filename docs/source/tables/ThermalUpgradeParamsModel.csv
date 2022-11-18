@@ -1,0 +1,14 @@
+Input Parameter,Description,Type,Required/Optional,Example/Default
+transformer_upper_limit,Transformer upper limit in per unit,float,Required,1.25
+line_upper_limit,Line upper limit in per unit,float,Required,1.25
+line_design_pu,Line design in per unit,float,Required,0.75
+transformer_design_pu,Transformer design in per unit,float,Required,0.75
+voltage_upper_limit,Voltage upper limit in per unit,float,Required,1.05
+voltage_lower_limit,Voltage lower limit in per unit,float,Required,0.95
+read_external_catalog,Flag to determine whether external catalog is to be used,boolean,Required,False
+external_catalog,Location to external upgrades technical catalog json file,string,Required,
+create_plots,Flag to enable or disable figure creation,boolean,Optional,True
+parallel_transformers_limit,Parallel transformer limit,integer,Optional,4
+parallel_lines_limit,Parallel lines limit,integer,Optional,4
+upgrade_iteration_threshold,Upgrade iteration threshold,integer,Optional,5
+timepoint_multipliers,"Dictionary to provide timepoint multipliers. example: timepoint_multipliers={""load_multipliers"": {""with_pv"": [1.2], ""without_pv"": [0.6]}}",object,Optional,

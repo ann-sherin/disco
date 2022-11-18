@@ -256,7 +256,7 @@ In order to run this simulation, the following inputs are needed. For required f
 The input parameters for thermal upgrades are shown in table below. For required fields, example inputs are provided, and for optional parameters, default inputs are shown.
 
 .. csv-table:: Thermal Upgrade Inputs
-   :file: ../images/thermal_inputs.csv
+   :file: ../../build/tables/ThermalUpgradeParamsModel.csv
    :header-rows: 1
 
 
@@ -265,7 +265,7 @@ The input parameters for thermal upgrades are shown in table below. For required
 The input parameters for voltage upgrades are shown in table below. 
 
 .. csv-table:: Voltage Upgrade Inputs
-   :file: ../images/voltage_inputs.csv
+   :file: ../../build/tables/VoltageUpgradeParamsModel.csv
    :header-rows: 1
 
 
@@ -274,7 +274,7 @@ The input parameters for voltage upgrades are shown in table below.
 In addition to the thermal and voltage input parameters, there are a few other simulation parameters which need to be provided.
 
 .. csv-table:: Simulation input parameters
-   :file: ../images/simulation_params.csv
+   :file: ../tables/UpgradeCostAnalysisSimulationModel.csv
    :header-rows: 1
 
 
@@ -284,7 +284,7 @@ Outputs
 *1. Costs*
 
 .. csv-table:: Output costs
-   :file: ../images/output_costs.csv
+   :file: ../tables/output_costs.csv
    :header-rows: 1
 
 
@@ -293,7 +293,7 @@ Outputs
 *2. Summary*
 
 .. csv-table:: Output summary
-   :file: ../images/output_summary.csv
+   :file: ../tables/output_summary.csv
    :header-rows: 1
 
 

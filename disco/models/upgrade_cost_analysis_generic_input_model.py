@@ -274,35 +274,43 @@ class ThermalUpgradeParamsModel(UpgradeParamsBaseModel):
     # Required fields
     transformer_upper_limit: float = Field(
         title="transformer_upper_limit",
-        description="Transformer upper limit in per unit (example: 1.25)",
+        description="Transformer upper limit in per unit",
+        example=1.25,
     )
     line_upper_limit: float = Field(
         title="line_upper_limit",
-        description="Line upper limit in per unit (example: 1.25)",
+        description="Line upper limit in per unit",
+        example=1.25,
     )
     line_design_pu: float = Field(
         title="line_design_pu",
-        description="Line design in per unit (example: 0.75)",
+        description="Line design in per unit",
+        example=0.75,
     )
     transformer_design_pu: float = Field(
         title="transformer_design_pu",
-        description="Transformer design in per unit (example: 0.75)",
+        description="Transformer design in per unit",
+        example=0.75,
     )
     voltage_upper_limit: float = Field(
         title="voltage_upper_limit",
-        description="Voltage upper limit in per unit (example: 1.05)",
+        description="Voltage upper limit in per unit",
+        example=1.05,
     )
     voltage_lower_limit: float = Field(
         title="voltage_lower_limit",
-        description="Voltage lower limit in per unit (example: 0.95)",
+        description="Voltage lower limit in per unit",
+        example=0.95,
     )
     read_external_catalog: bool = Field(
         title="read_external_catalog",
-        description="Flag to determine whether external catalog is to be used (example: False)",
+        description="Flag to determine whether external catalog is to be used",
+        example=False,
     )
     external_catalog: str = Field(
         title="external_catalog",
-        description="Location to external upgrades technical catalog json file",
+        description="Location to external upgrades technical catalog json file", 
+        example="",
     )
 
     # Optional fields
@@ -320,7 +328,7 @@ class ThermalUpgradeParamsModel(UpgradeParamsBaseModel):
     )
     timepoint_multipliers: Optional[Dict] = Field(
         title="timepoint_multipliers",
-        description='Dictionary to provide timepoint multipliers. example: timepoint_multipliers={"load_multipliers": {"with_pv": [1.2], "without_pv": [0.6]}}',
+        description='Dictionary to provide timepoint multipliers. example: timepoint_multipliers={"load_multipliers": {"with_pv": [1.2], "without_pv": [0.6]}}', default=None,
     )
 
     @validator("voltage_lower_limit")
@@ -378,23 +386,28 @@ class VoltageUpgradeParamsModel(UpgradeParamsBaseModel):
     # Required fields
     initial_upper_limit: float = Field(
         title="initial_upper_limit",
-        description="Initial upper limit in per unit (example: 1.05)",
+        description="Initial upper limit in per unit",
+        example=1.05,
     )
     initial_lower_limit: float = Field(
         title="initial_lower_limit",
-        description="Initial lower limit in per unit (example: 0.95)",
+        description="Initial lower limit in per unit",
+        example=0.95,
     )
     final_upper_limit: float = Field(
         title="final_upper_limit",
-        description="Final upper limit in per unit (example: 1.05)",
+        description="Final upper limit in per unit",
+        example=1.05,
     )
     final_lower_limit: float = Field(
         title="final_lower_limit",
-        description="Final lower limit in per unit (example: 0.95)",
+        description="Final lower limit in per unit",
+        example=0.95,
     )
     nominal_voltage: float = Field(
         title="nominal_voltage",
-        description="Nominal voltage (volts) (example: 120)",
+        description="Nominal voltage (volts)",
+        example=120,
     )
 
     # Optional fields
@@ -405,17 +418,17 @@ class VoltageUpgradeParamsModel(UpgradeParamsBaseModel):
     )
     capacitor_sweep_voltage_gap: float = Field(
         title="capacitor_sweep_voltage_gap",
-        description="Capacitor sweep voltage gap (example: 1)",
+        description="Capacitor sweep voltage gap",
         default=1.0,
     )
     reg_control_bands: List[int] = Field(
         title="reg_control_bands",
-        description="Regulator control bands (example: [1, 2])",
+        description="Regulator control bands",
         default=[1, 2],
     )
     reg_v_delta: float = Field(
         title="reg_v_delta",
-        description="Regulator voltage delta (example: 0.5)",
+        description="Regulator voltage delta",
         default=0.5,
     )
     max_regulators: int = Field(
@@ -545,17 +558,23 @@ class UpgradeCostAnalysisSimulationModel(UpgradeParamsBaseModel):
     )
     upgrade_cost_database: str = Field(
         title="upgrade_cost_database",
-        description="Database containing costs for each equipment type",
+        description="Path to Excel file containing costs for each equipment type",
+        example=""
     )
     calculate_costs: bool = Field(
         title="calculate_costs",
-        description="If True, calculate upgrade costs from database.",
+        description="If True, calculate upgrade costs from upgrade_cost_database file.",
         default=True,
     )
     upgrade_order: List[str] = Field(
         description="Order of upgrade algorithm. 'thermal' or 'voltage' can be removed from the "
         "simulation by excluding them from this parameter.",
         default=_SUPPORTED_UPGRADE_TYPES,
+    )
+    enable_pydss_controllers: bool = Field(
+        title="enable_pydss_controllers",
+        description="Flag to enable/disable use of PyDSS controllers",
+        default=False,
     )
     pydss_controllers: PyDssControllerModels = Field(
         title="pydss_controllers",
@@ -564,13 +583,8 @@ class UpgradeCostAnalysisSimulationModel(UpgradeParamsBaseModel):
     )
     plot_violations: bool = Field(
         title="plot_violations",
-        description="If True, create plots of violations before and after simulation.",
+        description="If True, create plots of violations before and after upgrade simulation.",
         default=True,
-    )
-    enable_pydss_controllers: bool = Field(
-        title="enable_pydss_controllers",
-        description="Flag to enable/disable use of PyDSS controllers",
-        default=False,
     )
     include_pf1: bool = Field(
         title="include_pf1",
@@ -578,7 +592,9 @@ class UpgradeCostAnalysisSimulationModel(UpgradeParamsBaseModel):
         default=True,
     )
     dc_ac_ratio: Optional[float] = Field(
-        title="dc_ac_ratio", description="Apply DC-AC ratio for PV Systems", default=None
+        title="dc_ac_ratio", 
+        description="Apply DC-AC ratio for PV Systems", 
+        default=None
     )
     jobs: List[UpgradeCostAnalysisGenericModel]
 

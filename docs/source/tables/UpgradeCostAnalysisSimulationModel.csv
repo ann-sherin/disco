@@ -1,0 +1,6 @@
+Input Parameter,Description,Type,Required/Optional,Example/Default
+upgrade_cost_database,Path to Excel file containing costs for each equipment type,string,Required,
+enable_pydss_controllers,Flag to enable/disable use of PyDSS controllers,boolean,Optional,FALSE
+pydss_controllers,"If enable_pydss_controllers is True, these PyDSS controllers are applied to each corresponding element type.",PyDSSControllerModel,Optional,{'pv_controller': None}
+plot_violations,"If True, create plots of violations before and after upgrade simulation.",boolean,Optional,TRUE
+include_pf1,Include PF1 scenario (no controls) if pydss_controllers are defined.,boolean,Optional,TRUE

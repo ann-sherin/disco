@@ -1,0 +1,17 @@
+Input Parameter,Description,Type,Required/Optional,Example/Default
+initial_upper_limit,Initial upper limit in per unit,float,Required,1.05
+initial_lower_limit,Initial lower limit in per unit,float,Required,0.95
+final_upper_limit,Final upper limit in per unit,float,Required,1.05
+final_lower_limit,Final lower limit in per unit,float,Required,0.95
+nominal_voltage,Nominal voltage (volts),float,Required,120.0
+create_plots,Flag to enable or disable figure creation,boolean,Optional,True
+capacitor_sweep_voltage_gap,Capacitor sweep voltage gap,float,Optional,1.0
+reg_control_bands,Regulator control bands,array,Optional,"[1, 2]"
+reg_v_delta,Regulator voltage delta,float,Optional,0.5
+max_regulators,Maximum number of regulators,integer,Optional,4
+place_new_regulators,Flag to enable or disable new regulator placement,boolean,Optional,True
+use_ltc_placement,Flag to enable or disable substation LTC upgrades module,boolean,Optional,True
+timepoint_multipliers,"Dictionary to provide timepoint multipliers. example: timepoint_multipliers={""load_multipliers"": {""with_pv"": [1.2], ""without_pv"": [0.6]}}",object,Optional,
+capacitor_action_flag,Flag to enable or disable capacitor controls settings sweep module,boolean,Optional,True
+existing_regulator_sweep_action,Flag to enable or disable existing regulator controls settings sweep module,boolean,Optional,True
+max_control_iterations,Max control iterations to be set for OpenDSS,integer,Optional,50
